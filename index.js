@@ -25,7 +25,8 @@ const Message = mongoose.model('messages', messageSchema);
 app.get('/messages', async (req, res) => {
     try {
         const messages = await Message.find()
-        res.status(200).json(messages)    
+        console.log("devuelvo los mensajes")
+        res.status(200).json({messages, env: "produccion"})    
     } catch (error) {
         res.status(500).json({message: "Imposible devolver los mensajes"})
     }
